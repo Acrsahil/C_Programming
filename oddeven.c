@@ -13,6 +13,7 @@ int main()
     else 
     {
         printf("%d is odd number\n");
+        
     }   
     return 0;
 }
