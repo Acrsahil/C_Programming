@@ -17,6 +17,5 @@ int main() {
     fgets(str, sizeof(str), stdin); // read input from user
     int num_vowels = count_vowels(str);
     printf("Number of vowels: %d\n", num_vowels);
-    printf("Number of vowels: %d\n", stdin);
     return 0;
 }
