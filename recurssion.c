@@ -2,16 +2,17 @@
 int factorial(int x);
 
 int main(){
-    int a = 8;
-    printf("The value of factorial %d is %d\n",a,factorial(a));
+    int a;
+    printf("Enter the number\n");
+    scanf("%d",&a);
+    printf("The value of factorial %d is %d\n",a,factorial(a)); // function call
     return 0;
 }
 
 int factorial(int x){
-    printf("Calling factorial (%d)\n",x);
-    if (x==1 || x == 0){
+    if (x==1 || x == 0){ 
         return 1;
     }else{
-        return x * factorial(x-1);
+        return x * factorial(x-1); // it will call the function untill the condition will match
     }
 }

@@ -6,7 +6,7 @@ int is_palindrome(char *s){
     int i;
     int len =strlen(s);
     for (i=0; i<len/2; i++) {
-        if (s[i] != s[len-i-1]) { // ardra
+        if (s[i] != s[len-i-1]) {
             return 0; // not a palindrome
         }
     }
@@ -16,7 +16,7 @@ int is_palindrome(char *s){
 int main(){
     char s[20];
     printf("Enter a string\n");
-    scanf("%s",&s);
+    scanf("%s",s);
     if (is_palindrome(s)){
         printf("%s is a palindrome\n",s);
     }else{
