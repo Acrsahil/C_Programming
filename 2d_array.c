@@ -1,32 +1,31 @@
-#include <stdio.h>
+#include<stdio.h>
 
-void print_array(int *arr, int rows, int cols){
-int arr[rows][cols];
-        printf("\n2D Array:\n");
-    for(int i = 0; i < rows; i++) {
-        for(int j = 0; j < cols; j++) {
-            printf("%d\t",*(arr[i][j]+1));
+void Accept(int rows,int cols){
+     int arr[rows][cols];
+    for(int i=0;i<rows;i++){
+        for(int j=0;j<cols;j++){
+            printf("Enter the value of %d row %d columns: ",i+1,j+1);
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    
+}
+
+void display(int arr[3][3],int rows,int cols){
+      for(int i=0;i<rows;i++){
+        for(int j=0;j<cols;j++){
+            printf("%d\t",arr[i][j]);
         }
         printf("\n");
     }
 }
-
-
 int main(){
-    int num_rows, num_cols;
-    printf("Enter the number of rows: ");
-    scanf("%d", &num_rows);
-    printf("Enter the number of columns: ");
-    scanf("%d", &num_cols);
-
-    int my_array[num_rows][num_cols];
-    for (int i=0;i<num_rows;i++){
-        for(int j=0;j<num_cols;j++){
-            printf("Enter the value of row %d and column %d: ",i+1,j+1);
-            scanf("%d",&my_array[i][j]);
-        }
-    }
-    print_array(my_array,num_rows,num_cols);
+    int rows,cols;
+    printf("Enter the rows of the array: ");
+    scanf("%d",&rows);
+    printf("Enter the cols of the array: ");
+    scanf("%d",&cols);
+    Accept(rows,cols);
+    display(arr,rows,cols);
     return 0;
 }
-
