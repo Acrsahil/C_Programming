@@ -1,15 +1,13 @@
 #include<stdio.h>
 
 int main(){
-    int i;
-    int j;
     int num;
     int is_prime;
     printf("Enter a number: ");
     scanf("%d",&num);
-    for (i=2;i<=num;i++){
+    for (int i=2;i<=num;i++){
         is_prime = 1;
-        for(j=2;j<i;j++){
+        for(int j=2;j<i;j++){
             if(i%j==0){
                 is_prime = 0;
                 break;

@@ -1,2 +1,1 @@
-ptr++;
-    // ptr++;
+int mult[m][10];
