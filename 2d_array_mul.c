@@ -18,9 +18,7 @@ int main(){
     printf("How many times to multiply: ");
     scanf("%d",&limit);
 
-
-
-    int mult[m][limit]; // m is how many table i want to print
+    int mult[m][limit]; // m is how many table you want to print
     int n;
     
     for(int i=0;i<m;i++){
@@ -29,9 +27,5 @@ int main(){
         printTable(mult[i], n,limit);
     }
     
-    // printTable(mult[1], 7,10);
-    // printTable(mult[2], 9,10);
-
-
     return 0;
 }
