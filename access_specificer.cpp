@@ -13,7 +13,6 @@ class sahil{
         
     }
     void print(){
-        cout<<"hello World";
         cout<<endl<<"Your name: "<<name<<endl<<"Your roll_no:"<<roll_no<<endl<<"Your class: "<<slass<<endl;
     }
 };
@@ -29,7 +28,6 @@ int main(){
     cin>>roll_no;
     cout<<"Enter the class>>";
     cin>>slass;
-
 
 
     obj.student(name,roll_no,slass);
