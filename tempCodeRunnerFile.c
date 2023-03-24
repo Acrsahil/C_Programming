@@ -1,1 +1,1 @@
-int mult[m][10];
+#include <stdbool.h>
