@@ -12,3 +12,6 @@ int main() {
     char st[] = "acrsahil";
     slice(st,1,7);
     printf("%s",st);
+    
+   return 0;
+}
