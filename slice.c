@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 void slice(char *st,int m,int n){
     int i=0;
@@ -15,3 +16,18 @@ int main() {
     
    return 0;
 }
+=======
+#include<stdio.h>
+
+void slice(char *st, int m, int n){
+    int i = 0; 
+    while (){
+        
+    }
+}
+int main(){
+    char st[] = "Sahil";
+    slice(st,1,4);
+    return 0;
+}
+>>>>>>> d6023de (added all file to github)

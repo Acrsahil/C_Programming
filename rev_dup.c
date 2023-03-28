@@ -1,18 +1,34 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main() {
-    int arr[] = {2, 3, 2, 3, 4,5, 5};
-    int size = sizeof(arr) / sizeof(int);
-    int initial = arr[0];
-    for (int i = 0;i<size;i++){
-        int count = 0;
-       for(int j=0;j<size;j++){
-        if(i!=j && arr[i]==arr[j]){
-            count ++;
-        }
+int n;
+    printf("How many data you want to insert in your array: ");
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        printf("Enter the %d number: ",i+1);
+        scanf("%d",&arr[i]);
+    }
 
-       }
-       printf("The %d is repeated %d times\n",arr[i],count+1);
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int num[size];
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        bool is_duplicate = false;
+        for (int j = 0; j < i; j++) {
+            if (arr[i] == arr[j]) {
+                is_duplicate = true;
+                break;
+            }
+        }
+        if (is_duplicate == false) {
+            num[count] = arr[i];
+            count++;
+        }
+    }
+    for (int i = 0; i < count; i++) {
+        printf("The %d element is %d\n", i+1,num[i]);
     }
     return 0;
 }

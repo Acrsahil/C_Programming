@@ -1,18 +1,28 @@
-#include <stdio.h>
+#include<stdio.h>
 
-int main() {
-    int arr[] = {2, 3, 2, 3, 4,5, 5};
-    int size = sizeof(arr) / sizeof(int);
-    int initial = arr[0];
-    for (int i = 0;i<size;i++){
-        int count = 0;
-       for(int j=0;j<size;j++){
-        if(i!=j && arr[i]==arr[j]){
-            count ++;
+int main(){
+int range,is_prime;
+
+
+printf("Enter the range: ");
+scanf("%d",&range);
+
+for(int i = 1;i<range;i++){
+    is_prime = 1;
+    for(int j = 2;j<i;j++){
+        if(i%j==0){
+            is_prime=0;
+            break;
         }
-
-       }
-       printf("The %d is repeated %d times\n",arr[i],count+1);
     }
+         if(is_prime == 1){
+        printf("prime number are: %d\n",i);
+    }
+    
+    }
+    
+   
+
+
     return 0;
 }

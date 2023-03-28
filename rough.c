@@ -1,20 +1,17 @@
 #include<stdio.h>
+#include<string.h>
 
 int main(){
-    int arr[] = {1,5,3,4,8,6,99,8};
-    int size = sizeof(arr)/sizeof(arr[0]);
-    int smallest = arr[0];
-    int largest = arr[0];
-    int i;
-    for(i=0; i<size; i++){
-        if(arr[i] > largest){
-            largest = arr[i];
-        }
-        if(arr[i] < smallest){
-            smallest = arr[i];
-        }
-    }
-    printf("The largest number in the array is %d\n", largest);
-    printf("The smallest number in the array is %d\n", smallest);
+    char *st= "Sahil is a bad boy";
+    char st2[] = "sahil is a good boy";
+    printf("Before: %s\n",st);
+    printf("Before: %s\n",st2);
+    printf("%s",st);
+    
+
+    strcpy(st2,st);
+
+    printf("After: %s\n",st);
+    printf("After: %s\n",st2);
     return 0;
 }
