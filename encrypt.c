@@ -7,9 +7,8 @@ void encrypt(char *c){
     }
 }
 int main(){
-    char c[] = "sahil acharya";
+    char c[] = "my name is programming";
     encrypt(c);
     printf("The encrypted value of the given string is %s\n",c);
-
     return 0;
 }
