@@ -1,1 +1,1 @@
-char *ptr = st;
+\
