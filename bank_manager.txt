@@ -1,0 +1,7 @@
+Name	Position
+Sahil	Manager
+Bibash	Helper
+&&	gcc
+gcc	file_handel.c
+&&	gcc
+&&	gcc
