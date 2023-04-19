@@ -2,70 +2,87 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Employee {
+typedef struct Employee
+{
     char name[50];
     char position[50];
 } emp;
 
-void addRecordToFile(){
+void addRecordToFile()
+{
     emp emp1;
     int size;
-    printf("How many employee you want to enter into the file: ");
-    scanf("%d",&size);
-    printf("\n");
-    for(int i = 0;i<size;i++){
-    printf("Enter the employee %d Name: ",i+1);
-    scanf("%s",emp1.name);
-    printf("Enter the employee %d Position: ",i+1);
-    scanf("%s",emp1.position);
-    printf("\n");
-}
-
-    FILE *file = fopen("bank_manager.txt","a");
-    if(file==NULL)
+    printf("How many employees do you want to enter into the file: ");
+    if (scanf("%d", &size) != 1)
     {
-        printf("Error!");
-        exit(1);
+        printf("Invalid input\n");
+        return;
+    }
+    printf("\n");
+
+    FILE *file = fopen("file_handle.csv", "a");
+    if (file == NULL)
+    {
+        printf("Error opening file\n");
+        return;
     }
 
     // add the heading if the file is empty
-    if(ftell(file) == 0) {
-        fprintf(file, "Name\tPosition\n");
+    if (ftell(file) == 0)
+    {
+        fprintf(file, "Name,Position\n");
     }
 
-    fprintf(file,"%s\t",emp1.name);
-    fprintf(file,"%s\n",emp1.position);
+    for (int i = 0; i < size; i++)
+    {
+        printf("Enter the employee %d Name: ", i + 1);
+        if (scanf("%49s", emp1.name) != 1)
+        {
+            printf("Invalid input\n");
+            fclose(file);
+            return;
+        }
+        printf("Enter the employee %d Position: ", i + 1);
+        if (scanf("%49s", emp1.position) != 1)
+        {
+            printf("Invalid input\n");
+            fclose(file);
+            return;
+        }
+        fprintf(file, "%s,%s\n", emp1.name, emp1.position);
+        printf("\n");
+    }
     fclose(file);
 }
 
-
-
-
-void displayRecordFromFile(){
-    printf("Name\tPosition\n"); // Add this line
+void displayRecordFromFile()
+{
+    printf("Name,Position\n");           // Add this line
     printf("-----------------------\n"); // Add this line
     printf("You can display record here\n");
     FILE *file;
-    file= fopen("bank_manager.txt","r");
-    if(file==NULL)
+    file = fopen("file_handle.csv", "r");
+    if (file == NULL)
     {
         printf("Error!");
         exit(1);
     }
     emp emp2;
-    while (fscanf(file,"%49s\n%49s\n",emp2.name,emp2.position) == 2){
-        printf("%s\t%s\n",emp2.name,emp2.position);
+    while (fscanf(file, "%49[^,],%49s\n", emp2.name, emp2.position) == 2)
+    {
+        printf("%s\t%s\n", emp2.name, emp2.position);
     }
     fclose(file);
 }
 
-
-void searchRecordInFile(){
+void searchRecordInFile()
+{
     emp emp2;
     printf("You can search record here\n");
     FILE *file;
-    file = fopen("bank_manager.txt", "r");
-    if (file == NULL) {
+    file = fopen("file_handle.csv", "r");
+    if (file == NULL)
+    {
         printf("Error!");
         exit(1);
     }
@@ -73,21 +90,25 @@ void searchRecordInFile(){
     printf("Enter Search Text: ");
     scanf("%s", searchText);
     int found = 0;
-    while (fscanf(file, "%49s\n%49s\n", emp2.name, emp2.position) == 2) {
-        if(strcmp(emp2.name,searchText) == 0 || strcmp(emp2.position,searchText) == 0){
+    while (fscanf(file, "%49[^,],%49s\n", emp2.name, emp2.position) == 2)
+    {
+        if (strcmp(emp2.name, searchText) == 0 || strcmp(emp2.position, searchText) == 0)
+        {
             printf("Record found\n");
-            printf("Name: %s\n",emp2.name);
-            printf("Position: %s\n",emp2.position);
+            printf("Name: %s\n", emp2.name);
+            printf("Position: %s\n", emp2.position);
             found = 1;
         }
     }
-    if(!found){
+    if (!found)
+    {
         printf("Record Not found\n");
     }
     fclose(file);
 }
 
-int main(){
+int main()
+{
     int c;
     printf("======= Welcome to Lincoln University Employee Management ========\n");
     printf("************************************************************\n");
@@ -97,31 +118,28 @@ int main(){
     printf("Press 4 for Exit\n");
     printf("************************************************************\n");
     printf("Enter your Choice\n");
-    scanf("%d",&c);
-    switch (c) {
-        case 1:{
+    scanf("%d", &c);
+    while (1)
+    {
+        switch (c)
+        {
+        case 1:
             addRecordToFile();
             break;
-        }
-
-        case 2:{
+        case 2:
             displayRecordFromFile();
             break;
-        }
-
-        case 3: {
+        case 3:
             searchRecordInFile();
             break;
-        }
-
-        case 4: {
+        case 4:
             printf("Exiting...\n");
             exit(0);
-        }
-
         default:
             printf("Invalid Choice\n");
             break;
+        }
+    
+        return 0;
     }
-    return 0;
 }
