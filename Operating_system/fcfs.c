@@ -2,7 +2,6 @@
 //make array of
 //
 //for loop enter arrival time and brust time for each processes
-
 #include<stdio.h>
 void print(int AT[],int BT[],int n){
         printf("Process NO\tArrival Time\tBrust Time\n");
@@ -10,17 +9,11 @@ void print(int AT[],int BT[],int n){
         printf("P%d\t\t%d\t\t%d\n",i+1,AT[i],BT[i]);
     }
 }
-
    int main(){
     int n;
     printf("Enter the number of processes: ");
     scanf("%d",&n);
-    int AT[n];
-    int BT[n];
-    int CT[n];
-    int TAT[n];
-    int WT[n];
-    int RT[n];
+    int AT[n],BT[n],CT[n],TAT[n],WT[n],RT[n]; // Arrival Time,Brust Time, Complete Time, Turn Around Time,Waiting Time, Response Time
     for(int i = 0;i<n;i++){
         printf("Enter the Arrival time of P%d: ",i+1);
         scanf("%d",&AT[i]);
@@ -28,8 +21,6 @@ void print(int AT[],int BT[],int n){
         scanf("%d",&BT[i]);
     }
     print(AT,BT,n);
-
-
     return 0;
 
 }
